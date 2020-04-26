@@ -1,8 +1,7 @@
 package com.cg.iter.dao;
-
 import java.util.List;
 
-import com.cg.entities.Book;
+import com.cg.iter.entities.Book;
 
 public interface AuthorBookDAO {
 	
@@ -12,5 +11,6 @@ public interface AuthorBookDAO {
 	
 	public List<Book> getBooksByPriceRange(double min,double max);
 	
-	public List<String> getAuthorName(long b_id);
+	public List<String> getAuthorName(int b_id);
+
 }

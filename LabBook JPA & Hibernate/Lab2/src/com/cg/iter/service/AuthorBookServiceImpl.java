@@ -2,12 +2,13 @@ package com.cg.iter.service;
 
 import java.util.List;
 
-import com.cg.dao.AuthorBookDAOImpl;
-import com.cg.entities.Book;
+
+import com.cg.iter.dao.AuthorBookDaoImpl;
+import com.cg.iter.entities.Book;
+
 
 public class AuthorBookServiceImpl implements AuthorBookService {
-
-	AuthorBookDAOImpl dao= new AuthorBookDAOImpl();
+	AuthorBookDaoImpl dao= new AuthorBookDaoImpl();
 	@Override
 	public List<Book> getAllBooks() {
 		// TODO Auto-generated method stub
@@ -30,12 +31,14 @@ public class AuthorBookServiceImpl implements AuthorBookService {
 	}
 
 	@Override
-	public List<String> getAuthorName(long b_id) {
+	public List<String> getAuthorName(int b_id) {
 		// TODO Auto-generated method stub
 		if(b_id>0)
 			return dao.getAuthorName(b_id);
 		else
 			return null;
 	}
+
+
 
 }

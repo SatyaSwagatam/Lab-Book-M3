@@ -1,18 +1,12 @@
 package com.cg.iter.entities;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.TableGenerator;
 
 @Entity
 @Table(name="Author1")
@@ -21,14 +15,14 @@ public class Author {
 	@Id
 	private long authorId;
 	private String authorName;
-	@ManyToMany(targetEntity=Book.class)
+	@OneToMany(targetEntity=Book.class)
 	private List<Book> bookList = new ArrayList<>();
 
 
 
 	public Author() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Author(long authorId, String authorName, List<Book> bookList) {
@@ -61,6 +55,4 @@ public class Author {
 	public void setBookList(List<Book> bookList2) {
 		this.bookList=bookList2;
 	}
-	
-	
 }

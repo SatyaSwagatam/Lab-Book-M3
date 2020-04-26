@@ -3,17 +3,16 @@ package com.cg.iter.pl;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-import com.cg.bean.Author;
-import com.cg.service.AuthorServiceImpl;
+import com.cg.iter.bean.Author;
+import com.cg.iter.service.AuthorService;
+import com.cg.iter.service.AuthorServiceImpl;
 
 public class Application {
 	public static void main(String[] args) {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		AuthorServiceImpl service = new AuthorServiceImpl();
+		AuthorService service = new AuthorServiceImpl();
 		try {
 			while(true) {
-			
-				//Menu 
 				System.out.println("---------MENU--------");
 				System.out.println("1. Enter New Author");
 				System.out.println("2. Update Author");
@@ -41,12 +40,11 @@ public class Application {
 						}
 						break;
 					case "2":
-					//Updating Author
 						System.out.println("Enter author id");
 						Integer id = Integer.parseInt(br.readLine());
 						author = service.findAuthor(id);
 						if(author != null) {
-							System.out.println("Author eixst");
+							System.out.println("Author exist");
 							System.out.println(author.toString());
 							Author temp = new Author();
 							temp.setAuthorId(author.getAuthorId());
@@ -68,7 +66,6 @@ public class Application {
 						}
 						break;
 					case "3":
-					//Deleting Author
 						System.out.println("Enter author id");
 						id = Integer.parseInt(br.readLine());
 						if(service.deleteAuthor(id)) {

@@ -10,18 +10,20 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
 @Entity
 @Table(name="Book1")
-public class Book {
 
+public class Book {
+	
 	@Id
 	private long bookIsbn;
 	private String title;
 	private double price;
-	@ManyToMany(targetEntity=Author.class)
+	@ManyToOne(targetEntity=Author.class)
 	private List<Author> authorList = new ArrayList<>();
 	
 	
@@ -63,4 +65,6 @@ public class Book {
 		this.authorList=authList;
 	}
 	
+
+
 }
